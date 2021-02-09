@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="https://cn.gravatar.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb">
-  <title>Kratos-Rebirth</title>
+  <title>这个页面走丢了呢… | Kratos-Rebirth</title>
   <meta name="author" content="Candinya" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -17,7 +17,7 @@
   
   <meta name="description" content="A demo site of theme Kratos Rebirth &#39;&#39;">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Kratos-Rebirth">
+<meta property="og:title" content="这个页面走丢了呢…">
 <meta property="og:url" content="https://kr-demo.candinya.com/404.html">
 <meta property="og:site_name" content="Kratos-Rebirth">
 <meta property="og:description" content="A demo site of theme Kratos Rebirth &#39;&#39;">
@@ -26,7 +26,7 @@
 <meta property="article:author" content="Candinya">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cn.gravatar.com/avatar/a7f9e15fef26e0a540edc977e21cb3eb">
-<meta name="twitter:site" content="@Candiinya">
+<meta name="twitter:site" content="@null">
   
   <!-- 站点验证相关 -->
   
@@ -43,6 +43,8 @@
   <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
   <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
   
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
   
   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
@@ -76,6 +78,10 @@
                                 
                                     
                                         <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/friends/"><i class="fa fa-paw"></i>好伙伴</a></li>
                                     
                                 
                                     
@@ -117,10 +123,10 @@
 
         <div id="kratos-blog-post">
             <div class="container">
-                <div class="row">
+                <div id="main" class="row">
                     
-        <div id="main">
-            <!-- Additional Style -->
+
+        <!-- Additional Style -->
 <style>
     .page404 {
         padding: 0 5%
@@ -178,13 +184,13 @@
     </div>
 </div>
 
-        </div>
+
                 
         </div>
     </div>
 </div>
 <footer>
-    <div id="footer">
+    <div id="footer"  class="ap-lrc"  >
         <div class="kr-tool text-center">
             <div class="tool">
                 
@@ -212,10 +218,10 @@
                         
                         
                         <li><a target="_blank" rel="nofollow" href="https://t.me/CandyUnion"><i class="fa fa-telegram"></i></a></li>
-                        <li><a target="_blank" rel="nofollow" href="https://twitter.com/Candiinya"><i class="fa fa-twitter"></i></a></li>
                         
                         
                         
+                        <li><a target="_blank" rel="me" href="https://nya.one/@Candinya"><i class="fa fa fa-share-alt-square"></i></a></li>
                         <li><a target="_blank" rel="nofollow" href="https://github.com/Candinya"><i class="fa fa-github"></i></a></li>
                         
                     </ul>
@@ -250,6 +256,19 @@
 <script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
 
 <script async src="/js/candy.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3204190542"
+        order="random"
+        fixed="true"
+    >
+    </meting-js>
+
 
 
 <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>

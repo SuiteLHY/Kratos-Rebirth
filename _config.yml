@@ -1,8 +1,12 @@
+# 主题配置
+## Docs: https://candinya.com/posts/Kratos-Rebirth-Manual/
+## Source: https://github.com/Candinya/Kratos-Rebirth/wiki
+
 # Global 全局配置
 site_analytics: 
 hoster: <a href="https://github.io" target="_blank">Github Pages</a>
 site_logo:
-snow: false
+snow: true
 enable_dark: true
 highlight_theme: night-eighties # 代码高亮主题（light | night | night-eighties | night-blue | night-bright）
 cdn: false
@@ -10,7 +14,7 @@ check_update: true
 
 # Index 首页配置
 index:
-  post_type: false
+  post_type: true
   read_count: true
   comment_count: true
 
@@ -37,20 +41,22 @@ label:
 group_link: 
 contact:
   weibo: 
-  mail: 
-  telegram: CandyUnion
+  mail:
+  telegram: SuiteLHY
   twitter: 
   facebook: 
   linkedin: 
   fediverse:
-    instance: nya.one
-    username: Candinya
-  github: Candinya
+#    instance: nya.one
+    instance:
+#    username: Candinya
+    username:
+  github: SuiteLHY
   rss:
 timenotice: 本站已运行
 icp: 
 psr:
-  
+
 # Post Page 文章页配置
 posts:
   show_cc: true
@@ -96,7 +102,8 @@ aplayer:
   meting:
     server: netease
     type: playlist
-    id: 3204190542
+#    id: 3204190542
+    id: 900328786
   order: random
 
 # Widgets 侧边栏小挂件
@@ -108,7 +115,8 @@ widgets:
 - category
 - tagcloud
 - posts
-avatarUri: /images/avatar.webp
+#avatarUri: /images/avatar.webp
+avatarUri: https://avatars.githubusercontent.com/SuiteLHY
 
 # Fancybox 文章内图片单击放大
 fancybox: true
@@ -121,11 +129,11 @@ search:
   content: true # Include post | page content
 
 # JavaScript 相关配置
-## 由于Javascript被压缩后难以有效编辑与生成，因而为了简化操作，将相关的配置项在生成文件时以独立的json文件写出，调用时使用fetch API获取。
+## 由于 Javascript 被压缩后难以有效编辑与生成，因而为了简化操作，将相关的配置项在生成文件时以独立的 json 文件写出，调用时使用 fetch API 获取。
 jsconfig:
   main:
     picCDN: false
-    createTime: "2018/05/06 17:03:12"
+    createTime: "2021/04/06 20:29:04"
     donateBtn: "支持我~"
     scanNotice: "扫一扫，好不好？"
     qr_alipay: "/images/alipayqr.webp"
@@ -146,10 +154,10 @@ site_verify:
 friends:
   href: "friends"
   page:
-    title: "好伙伴们"
+    title: "小伙伴们"
     comments: false
-    description: "好伙伴们在哪里~"
-    updated: "2021-01-18"
+    description: "小伙伴们开饭啦~"
+    updated: "2021-04-07"
   list:
   - name: "猫猫①号"
     bio: "喵~"
@@ -157,9 +165,5 @@ friends:
     link: "#"
   - name: "猫猫②号"
     bio: "喵喵~"
-    avatar: "/images/avatar.png"
-    link: "#"
-  - name: "猫猫⑨号"
-    bio: "咪啪~"
     avatar: "/images/avatar.png"
     link: "#"

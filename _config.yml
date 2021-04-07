@@ -14,7 +14,7 @@ check_update: true
 
 # Index 首页配置
 index:
-  post_type: true
+  post_type: false
   read_count: true
   comment_count: true
 

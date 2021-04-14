@@ -5,12 +5,12 @@
 # Global 全局配置
 site_analytics: 
 hoster: <a href="https://github.io" target="_blank">Github Pages</a>
-site_logo:
+site_logo: https://avatars.githubusercontent.com/SuiteLHY
 snow: true
 enable_dark: true
 highlight_theme: night-eighties # 代码高亮主题（light | night | night-eighties | night-blue | night-bright）
 cdn: false
-check_update: true
+check_update: false
 
 # Index 首页配置
 index:
@@ -25,8 +25,8 @@ menu:
   friends: /friends/
   sites:
     submenu: true
-    author: https://candinya.com
-    project: https://github.com/Candinya/Kratos-Rebirth
+    author: https://github.com/SuiteLHY
+    project: https://github.com/SuiteLHY/SuiteLHY.github.io
 
 label:
   index: <i class="fa fa-home"></i>首页
@@ -34,7 +34,7 @@ label:
   friends: <i class="fa fa-paw"></i>好伙伴
   sites:
     submenu: <i class="fa fa-link"></i>链接
-    author: 作者博客
+    author: 本站作者
     project: 项目链接
 
 # Footer 页脚配置
@@ -155,15 +155,15 @@ friends:
   href: "friends"
   page:
     title: "小伙伴们"
-    comments: false
+    comments: true # Default false
     description: "小伙伴们开饭啦~"
     updated: "2021-04-07"
   list:
-  - name: "猫猫①号"
-    bio: "喵~"
-    avatar: "/images/avatar.png"
-    link: "#"
-  - name: "猫猫②号"
-    bio: "喵喵~"
-    avatar: "/images/avatar.png"
-    link: "#"
+  - name: "Candinya"
+    bio: "本站开源主题&thinsp;Kratos-Rebirth&thinsp;的作者🍭"
+    avatar: "https://avatars.githubusercontent.com/Candinya"
+    link: "https://candinya.com/"
+  - name: "Cirnop"
+    bio: "⑨"
+    avatar: "https://avatars.githubusercontent.com/Cirnop"
+    link: "https://github.com/Cirnop"

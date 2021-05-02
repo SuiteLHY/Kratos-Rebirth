@@ -42,3 +42,21 @@ hexo.theme.on('processAfter', () => {
         });
     }
 });
+
+hexo.theme.once('generateAfter', () => {
+    // 完全处理完成后
+    const friends = hexo.theme.config.friends;
+    if (!friends || !friends.list || !friends.verify) {
+        // 无需构建，直接返回
+        return;
+    }
+    
+    const https = require('https');
+    friends.list.forEach((friend) => {
+        https.get(friend.link)
+            .on('error', err => {
+                hexo.log.warn(`友链"${friend.name}"(${friend.link})出现错误，以下是错误信息：`);
+                hexo.log.warn(err);
+            });
+    });
+});

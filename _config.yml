@@ -132,7 +132,11 @@ search:
 ## 由于 Javascript 被压缩后难以有效编辑与生成，因而为了简化操作，将相关的配置项在生成文件时以独立的 json 文件写出，调用时使用 fetch API 获取。
 jsconfig:
   main:
-    picCDN: false
+    pic:
+      CDN: false # 表示不使用CDN加载图片
+      random_amount: 500 # 表示从1~500
+      # 如果包含<code>//</code>表示使用指定域名的绝对路径（例如第三方图床服务等），此时会忽略CDN配置项
+      filename: "images/thumb/thumb_{no}.webp" # 相对于主题根目录，表示文件名的格式，{no}用以指代随机的编号。
     createTime: "2021/04/06 20:29:04"
     donateBtn: "支持我~"
     scanNotice: "扫一扫，好不好？"
@@ -146,7 +150,7 @@ jsconfig:
 
 # Site verify 站点验证相关配置内容
 site_verify:
-  google: 
+  google: WMMbArTS9RmLA9nUSebp4HPyfssVTobSnLz-E52SbjU
   baidu: 
   bing: 
 
@@ -154,7 +158,7 @@ site_verify:
 friends:
   href: "friends"
   page:
-    title: "小伙伴们"
+    title: "好伙伴们"
     comments: true # Default false
     description: "小伙伴们开饭啦~"
     updated: "2021-04-07"

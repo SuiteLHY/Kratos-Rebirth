@@ -135,7 +135,7 @@ jsconfig:
     pic:
       CDN: false # 表示不使用CDN加载图片
       # 注意：如果"random_amount"配置项的值大于随机图片的数量，则会在站点运行时出现找不到图片的显示问题
-      random_amount: 104 # 表示从1~104
+      random_amount: 107 # 表示从1~107
       # 如果包含<code>//</code>表示使用指定域名的绝对路径（例如第三方图床服务等），此时会忽略CDN配置项
       filename: "images/thumb/thumb_{no}.webp" # 相对于主题根目录，表示文件名的格式，{no}用以指代随机的编号。
     createTime: "2021/04/06 20:29:04"

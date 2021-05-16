@@ -82,7 +82,7 @@ valine:
   app_id: 0R1Qrkfq3Hl2WSuluSWjwYt3-gzGzoHsz
   app_key: PvUtUxjAQYl2GWAS6m5qYyXh
   visitor: true
-  enableQQ: false
+  enableQQ: true
 
 # Twikoo [Twikoo](https://twikoo.js.org) 评论相关
 twikoo:

@@ -62,7 +62,7 @@ posts:
   show_cc: true
   donate: false
   share: true
-  comments:
+  comments: valine
 
 # Disqus [Disqus](https://disqus.com) 评论相关
 disqus:

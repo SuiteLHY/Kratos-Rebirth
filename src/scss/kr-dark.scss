@@ -109,8 +109,6 @@ blockquote {
     }
 }
 
-blockquote 
-
 .kratos-cover.kratos-cover-2 {
     background-color: var(--page-background);
 }
@@ -141,6 +139,12 @@ blockquote
 .kratos-entry-header .kratos-post-meta {
     span, a {
         color: var(--text);
+    }
+}
+
+ul.kratos-post-meta {
+    > li {
+        color: var(--text-alt);
     }
 }
 
@@ -295,6 +299,14 @@ a:hover,
   }
 }
 
+span.blur {
+  text-shadow: 0 0 .5em var(--text);
+
+  &:hover {
+    color: var(--text)!important;
+  }
+}
+
 /******************* Plugins ********************/
 
 #dsqjs {
@@ -312,6 +324,36 @@ a:hover,
     }
 }
 
+.post-comments {
+    .v[data-class=v] {
+        p, 
+        .vheader label, 
+        .veditor, .veditor::placeholder {
+            color: var(--text);
+        }
+
+        .vbtn,
+        .vcount,
+        .vcard .vhead span.vnick,
+        .vcard .vhead .vtime {
+            color: var(--text-alt);
+        }
+
+        .vicon,
+        .vcard .vhead .vreply svg {
+            fill: var(--text-alt);
+        }
+
+        .vpanel {
+            background-color: var(--tag-background);
+        }
+
+        .veditor:focus, .vinput:focus {
+            background-color: var(--info-background);
+        }
+    }
+}
+
 #aplayer * {
     color: unset;
 }
@@ -319,6 +361,8 @@ a:hover,
 span.mjx-chtml.MJXc-display {
     color: var(--text);
 }
+
+
 
 /******************* Images ********************/
 @media(min-width:768px) {

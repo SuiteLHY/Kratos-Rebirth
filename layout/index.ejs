@@ -27,17 +27,44 @@
                         </div>
                     </div>
                 </div>
-                <% if (!post.link && post.tags.length) { %>
+                <% if (!post.link || post.comments) { %>
                     <footer class="kratos-post-meta-new">
                         <span class="pull-left">
                             <a><i class="fa fa-calendar"></i></a><a><%- date(post.date, null) %></a>
-                            <a><i class="fa fa-tags"></i></a>
-                            <%- list_tags(post.tags, {
-                                show_count: false,
-                                style: 'none',
-                                amount: 3
-                            }) %>
+                            <% if (post.tags.length) { %>
+                                <a><i class="fa fa-tags"></i></a>
+                                <%- list_tags(post.tags, {
+                                    show_count: false,
+                                    style: 'none',
+                                    amount: 3
+                                }) %>
+                            <% } %>
+                            <% if (theme.index.read_count) { %>
+                                <!-- 当前仅支持valine/waline自带的统计功能 -->
+                                <% if (/[vw]aline/.test(theme.posts.comments) && theme[theme.posts.comments].visitor) { %>
+                                    <a id="<%- url_for(post.path) %>" class="leancloud_visitors" data-flag-title="<%- post.title %>">
+                                        <i class="fa fa-eye"></i>
+                                        <%- __('read_count', '<span class="leancloud-visitors-count"> </span>') %>
+                                    </a>
+                                <% } %>
+                            <% } %>
+                            <% if (theme.index.comment_count) { %>
+                                <!-- 当前仅支持waline自带的统计功能 -->
+                                <% if (theme.posts.comments === 'waline') { %>
+                                    <a>
+                                        <i class="fa fa-commenting-o"></i>
+                                        <%- __('comments_count', '<span data-xid="' + url_for(post.path) + '" class="waline-comment-count"> </span>') %>
+                                    </a>
+                                <% } %>
+                            <% } %>
                         </span>
+                        
+                        <% if (post.comments) { %>
+                            <span class="pull-right">
+                                <a class="read-more" href="<%- url_for(post.path) %>" title="<%- __('comment') %>"><%- __('comment') %><i class="fa fa-chevron-circle-right"></i></a>
+                            </span>
+                        <% } %>
+
                     </footer>
                 <% } %>
             </article>
@@ -117,7 +144,11 @@
         <% } else { %>
             <article class="kratos-hentry clearfix">
                 <div class="kratos-entry-border-new clearfix">
-                    <% if (post.sticky || post.top) { %><img class="stickyimg" src="/images/sticky.webp"><% } %>
+                    <% if (post.sticky || post.top) { %>
+                        <div class="pin-top wrapper">
+                            <div class="pin-top inner"></div>
+                        </div>
+                    <% } %>
                     <div class="kratos-entry-thumb-new">
                         <a href="<%- url_for(post.path) %>">
                             <% if (post.pic) { %>
@@ -135,7 +166,7 @@
                                     style: 'none',
                                     separator: ' '
                                 }) %>
-                            <h2 class="kratos-entry-title-new"><a href="<%- url_for(post.path) %>"><%- post.title %><% if (post.subtitle) { %><sub><%- post.subtitle %></sub><% } %></a><% if (post.sticky || post.top) { %><strong>——置顶</strong></h2><% } %>
+                            <h2 class="kratos-entry-title-new"><a href="<%- url_for(post.path) %>"><%- post.title %><% if (post.subtitle) { %><sub><%- post.subtitle %></sub><% } %></a>
                         </header>
                         <div class="kratos-entry-content-new">
                             <p>

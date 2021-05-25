@@ -1,9 +1,11 @@
 const { src, dest, parallel, watch } = require('gulp');
-const sass = require('gulp-sass');
+const sass = require('gulp-dart-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const terser = require('gulp-terser');
 const rename = require('gulp-rename');
+const sourcemaps = require('gulp-sourcemaps');
+const browserSync = require('browser-sync').create();
 
 sass.compiler = require('sass');
 
@@ -30,36 +32,50 @@ const configs = {
 
 function buildSass(cb) {
     src('src/scss/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer(configs.autoprefixer))
-        .pipe(cleanCSS(configs.cleanCSS))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(dest('source/css'));
+        .pipe(sourcemaps.init())
+            .pipe(sass().on('error', sass.logError))
+            .pipe(autoprefixer(configs.autoprefixer))
+            .pipe(cleanCSS(configs.cleanCSS))
+            .pipe(rename({ suffix: '.min' }))
+        .pipe(sourcemaps.write('../maps'))
+        .pipe(dest('source/css'))
+        .pipe(browserSync.reload({stream: true}));
     cb();
 }
 
 function buildHighlight(cb) {
     src('src/scss/highlight/theme/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer(configs.autoprefixer))
-        .pipe(cleanCSS(configs.cleanCSS))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(dest('source/css/highlight'));
+        .pipe(sourcemaps.init())
+            .pipe(sass().on('error', sass.logError))
+            .pipe(autoprefixer(configs.autoprefixer))
+            .pipe(cleanCSS(configs.cleanCSS))
+            .pipe(rename({ suffix: '.min' }))
+        .pipe(sourcemaps.write('../../maps'))
+        .pipe(dest('source/css/highlight'))
+        .pipe(browserSync.reload({stream: true}));
     cb();
 }
 
 function minifyJs(cb) {
     src('src/js/*.js')
-        .pipe(terser(configs.terser))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(dest('source/js'));
+        .pipe(sourcemaps.init())
+            .pipe(terser(configs.terser))
+            .pipe(rename({ suffix: '.min' }))
+        .pipe(sourcemaps.write('../maps'))
+        .pipe(dest('source/js'))
+        .pipe(browserSync.reload({stream: true}));
     cb();
 }
 
 const build = parallel(buildSass, minifyJs, buildHighlight);
 
 function build_watch(cb) {
-    watch('src/**', {ignoreInitial: true}, build);
+    browserSync.init({
+      proxy: 'http://127.0.0.1:4000/'
+    });
+    watch('src/scss/*.scss', buildSass).on('change', browserSync.reload);
+    watch('src/scss/highlight/theme/*.scss', buildHighlight).on('change', browserSync.reload);
+    watch('src/js/*.js', minifyJs).on('change', browserSync.reload);
 }
 
 // watch('src/**', parallel(minifycss, minifyjs));

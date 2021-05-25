@@ -10,17 +10,19 @@
 
 [样例站点](https://kr-demo.candinya.com)自动部署已经上线，具体可以参照这篇日志：[使用Github Actions部署主题样例站](https://candinya.com/posts/theme-demo-deployment-with-github-actions/)
 
-全新的配置文档增加了！戳[这里](https://candinya.com/posts/Kratos-Rebirth-Manual/)查看更多~
+全新的配置文档增加了！戳[这里](https://github.com/Candinya/Kratos-Rebirth/blob/master/Kratos-Rebirth-Manual.md)就能查看~
 
-或者也可以去[项目Wiki](https://github.com/Candinya/Kratos-Rebirth/wiki)里面找找哦~
+或者也可以去[我的博客](https://candinya.com/posts/Kratos-Rebirth/)踩踩哦~
 
 核心结构&样式来源：[@MoeDog](https://github.com/xb2016) 狗狗大佬的[Kratos](https://github.com/xb2016/kratos)的某个上古版本
 
-## 💞 特别提示
+## 💞 安装使用
 
-1. 为了防止更新时配置文件的更新覆盖掉您的配置文件，主题的主配置文件是需要您**手动**复制一份`_config.yml.example`，并改名为`_config.yml`才可正常读取与使用的，请千万不要忘记啦。之前版本的站点配置文件从这个版本开始已经**不需要**加入了，使用[带上主题设置加载Hexo自定义功能](https://candinya.com/posts/process-with-theme-config-using-process-after/)的方法即可在代码生成阶段就完成主题配置的读取，进而在监听运行时也能完美地调用相关的配置参数。同时，也可以使用同样的方法精简掉JavaScript的配置，不必再去翻找那些被压缩得面目全非的代码啦。
-
-2. 这个Branch之后会持续加入一些也许是Hexo 5的新特性，这些特性未必完全兼容Hexo 4，如果您使用的是Hexo 4.x的话您可以移步[hexo-4 branch](https://github.com/Candinya/Kratos-Rebirth/tree/hexo-4)哦，或是更为推荐的，将Hexo升级至5.x版本呢。
+1. `hexo init your-awesome-blog` 初始化您的 Hexo 站点文件夹（已经完成则可以忽略）
+2. 进入您的站点文件夹，使用 `git clone https://github.com/Candinya/Kratos-Rebirth/ themes/kratos-rebirth` 将主题安装到站点文件夹下的 theme 主题目录中
+3. 修改站点文件夹下的 `_config.yml` 站点配置文件，将默认的 `theme: landscape` 修改成 `theme: kratos-rebirth`
+4. 进入主题文件夹，手动复制一份 `_config.yml.example` ，并改名为 `_config.yml` 。您可以在这里进行主题设置的修改。
+    补注：由于 [Hexo生命周期事件与主题注入代码的冲突](https://github.com/Candinya/Kratos-Rebirth/issues/56) 的问题，暂时不能完美支持将主题配置文件拷贝到站点根目录下的使用方式，还请您谅解。
 
 ## 🍬 超棒的赞助者们
 
@@ -43,7 +45,11 @@ hexo的官方渲染器现在也已经支持文章置顶啦，配置`Front-Matter
 
 ## 🍩 二次开发相关
 
-为了保证最终上线产品的有效空间利用，我们引入了gulp对静态资源文件（js、css）进行压缩；因而您在src文件夹下直接修改的静态文件会无法实时生效，请安装gulp及相应的插件（在主题文件夹下`npm install`，使用`npx gulp`指令开启压缩与文件监听应该即可），以便压缩静态文件。
+为了保证最终上线产品的有效空间利用，我们引入了gulp对静态资源文件（js、css）进行压缩；因而您在src文件夹下直接修改的静态文件会无法实时生效，请安装gulp及相应的插件（在主题文件夹下 `npm install` 或是 `yarn install` ）。
+
+您可以使用 `npm run build` 或是 `yarn build` 来构建一次静态文件。
+
+同时，为方便变化内容实时更新和多浏览器测试开发，您可以使用 `npm run watch` 或是 `yarn watch` 来运行。我们也有引入 Browser Sync 功能方便地在多个浏览器上查看变化，推荐您在 Hexo 启动后运行该指令。
 
 ## 💮 非常感谢
 

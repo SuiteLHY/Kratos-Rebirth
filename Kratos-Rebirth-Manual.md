@@ -36,6 +36,8 @@ toc: true
 
 - **snow** : (*true/false*)站点下雪特效开关，控制是否在载入下雪相关的代码。
 
+- **click_animate_js** : (<i>**filename**/false</i>) 点击事件使用的动画 js 文件，默认为 `candy` 即主题自带的 `candy.js` 文件，您可以设置成 false 表示禁用，或是引入其他您喜欢的动画 js 文件。
+
 - **enable_dark** : (*true/false*)站点是否启用暗色模式适配。请注意，即使启用了暗色模式，在亮色的环境下主题仍然会渲染为亮色模式；同时用户可以手动选择使用的颜色（右下角菜单栏按钮处）。
 
 - **highlight_theme** : 代码高亮主题，五选一（light | night | night-eighties | night-blue | night-bright），控制代码高亮时候使用的配色。会根据用户的选择自动加载对应的高亮主题文件。
@@ -43,6 +45,14 @@ toc: true
 - **cdn** (*true/false*)为静态资源开启CDN加速（使用jsDelivr）。请注意，如果您修改了任何静态资源，那么请保持此项为false（同时也是默认状态）
 
 - **check_update** (*true/false*)版本更新检查，无需检查的话就记得关闭哦。
+
+### - Custom Styles 自定义样式
+
+这部分配置的内容可以覆盖 CSS 文件中指定的部分。
+
+- **images** 图片
+  - **banner** 站点横幅
+  - **background** 站点背景
 
 ### - Index 首页配置相关
 
@@ -104,7 +114,7 @@ label:
 
 - **share** : (*true/false*)控制文章页面是否显示分享链接的按钮
 
-- **comments** : (*disqus/disqusjs/valine/twikoo/waline/false*)会从`layout/_comments`文件夹中加载指定的评论系统，您也可以自定义其他的解决方案。如果不想开启评论的话，那就还是设置为false吧\~
+- **comments** : (*disqus/disqusjs/valine/twikoo/waline/gitalk/false*)会从`layout/_comments`文件夹中加载指定的评论系统，您也可以自定义其他的解决方案。如果不想开启评论的话，那就还是设置为false吧\~
 
 ### - Disqus 评论相关
 
@@ -145,6 +155,10 @@ label:
 ### - Waline 评论相关
 
 这里使用了[Waline](https://waline.js.org/)这个项目，具体的参数配置相关的可以参考Waline文档的[前端配置](https://waline.js.org/client/basic.html)段，自行调整相关前后端的配置。在该配置段下的内容都会被自动引入至评论模块中。el 和 path 会在页面自动生成，不必加入。
+
+### - Gitalk 评论相关
+
+这里使用了[Gitalk](https://gitalk.github.io/)这个项目，具体的参数配置相关的可以参考[Gitalk 文档](https://github.com/gitalk/gitalk/blob/master/readme-cn.md#%E8%AE%BE%E7%BD%AE)，自行调整相关前后端的配置。在该配置段下的内容都会被自动引入至评论模块中。id 会在页面自动生成，不必加入。
 
 ### - APlayer 音乐播放器相关（页面左下角）
 

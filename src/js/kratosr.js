@@ -454,23 +454,35 @@ ${kr.copyrightNotice}
     const tocAnimInit = () => {
         if (document.getElementById('krw-toc') !== null) {
             // 有toc的页面
-            // 获取所有的toc项
-            const tocDOMs = document.getElementsByClassName('toc-item');
+            // 获取侧边栏所有的toc项
+            const tocDOMs = document.getElementById("krw-toc").getElementsByClassName('toc-item');
             // 元素高度映射记录
             const tocHeightMap = [];
-            Array.from(tocDOMs).forEach((tocItem) => {
-                // 获取链接子元素
-                const linkItem = tocItem.getElementsByClassName('toc-link')[0];
-                // 获取链接地址
-                const titleText = decodeURI(linkItem.getAttribute('href'));
-                // 获取目标标题高度
-                const titleHeight = document.getElementById(titleText.replace('#', '')).offsetTop;
-                // 压入记录
-                tocHeightMap.push({
-                    h: titleHeight,
-                    el: tocItem
+            try {
+                Array.from(tocDOMs).forEach((tocItem) => {
+                    // 获取链接子元素
+                    const linkItem = tocItem.getElementsByClassName('toc-link')[0];
+                    // 获取链接地址
+                    const titleText = decodeURI(linkItem.getAttribute('href'));
+                    // 检测链接是否有效：无效则进行回落处理
+                    if (!titleText.includes('#')) {
+                        throw new Error('TOC 小标题链接无效，进行回落处理');
+                    }
+                    // 获取目标标题高度
+                    const titleHeight = document.getElementById(titleText.replace('#', '')).offsetTop;
+                    // 压入记录
+                    tocHeightMap.push({
+                        h: titleHeight,
+                        el: tocItem
+                    });
                 });
-            });
+            } catch (e) {
+                console.log('错误：', e.message);
+                Array.from(tocDOMs).forEach((tocItem) => {
+                    tocItem.classList.add('show');
+                });
+                return;
+            }
 
             // 排序
             tocHeightMap.sort((a, b) => {

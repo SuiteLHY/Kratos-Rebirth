@@ -5,6 +5,7 @@
 一只移植的主题，兼具亮暗双主题，身负多种小挂件，短能卡片列首页，长能文章读更多，退可罗列全归档，进可搜索全文章，相关介绍可以参见[主题说明](https://candinya.com/posts/Kratos-Rebirth/)页面哦~
 
 [![构建版本](https://img.shields.io/github/v/release/Candinya/Kratos-Rebirth)](https://github.com/Candinya/Kratos-Rebirth/releases/latest)
+[![npm版本](https://img.shields.io/npm/v/kratos-rebirth?color=red&logo=npm)](https://www.npmjs.com/package/kratos-rebirth)
 [![样例站点部署状态](https://github.com/Candinya/Kratos-Rebirth/workflows/Build%20Demo%20Site/badge.svg)](https://kr-demo.candinya.com/)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FCandinya%2FKratos-Rebirth.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FCandinya%2FKratos-Rebirth?ref=badge_shield)
 
@@ -35,6 +36,7 @@
 
 1. hexo的官方渲染器现在也已经支持文章置顶啦，配置`Front-Matter`段中的`sticky`参数即可实现置顶降序排序，可以参见生成器的[官方文档](https://github.com/hexojs/hexo-generator-index#usage)哦
 2. 由于使用了 `?.` 运算符，在旧版本的 NodeJS 上可能出现工作不正常的情况，因而我们推荐您使用 Node v14 或更新的版本。详情请参见 [可选链操作符](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Optional_chaining) 。
+3. 为了防止主题配置文件被上传导致版本管理冲突，主题的 `_config.yml` 文件是默认被忽略的（ .gitignore ），如果您使用远程构建部署的方式（例如 Pages 或是 Vercel 等），您需要手动添加对主题配置文件的追踪，可以使用 `git add -f ./themes/kratos-rebirth/_config.yml` 来恢复追踪。
 
 ## 💬 支持的评论系统
 
@@ -56,13 +58,15 @@
 ## 💮 非常感谢
 
 - [Kratos-pjax](https://github.com/xb2016/kratos-pjax)
-- [hexo-theme-sagiri](https://github.com/DIYgod/diygod.me/tree/master/themes/sagiri).
+- [hexo-theme-sagiri](https://github.com/DIYgod/diygod.me/tree/master/themes/sagiri)
 - [hexo-theme-suka](https://github.com/SukkaW/hexo-theme-suka)
 - [hexo-theme-landscape](https://github.com/hexojs/hexo-theme-landscape)
 - [APlayer](https://github.com/MoePlayer/APlayer)
 - [NProgress](https://github.com/rstacruz/nprogress)
 - [CloudFlare](https://www.cloudflare.com/)
 - [jsDelivr](https://www.jsdelivr.com/)
+- [unpkg](https://www.unpkg.com/)
+- [npm](https://www.npmjs.com/)
 
 ## 🎉 特别赞助
 

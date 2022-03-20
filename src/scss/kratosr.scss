@@ -472,7 +472,7 @@ table {
 
   th {
     color: white;
-    background: deepskyblue;
+    background: #2bda;
   }
 
   td, th {
@@ -654,8 +654,31 @@ table {
 }
 
 .alert {
-  padding: 15px;
+  padding: 1rem;
+  margin: 2rem 0;
   border: 1px solid transparent;
+  display: flex;
+  flex-direction: row;
+
+  .icon, .text {
+    display: flex;
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: #fffc;
+    border: 1px solid;
+    justify-content: center;
+    align-items: center;
+    margin-right: .5rem;
+  }
+
+  .text {
+    flex: 1;
+    border-left: 1px dashed;
+  }
 
   ul, p {
     margin: 0 1em!important;
@@ -670,7 +693,7 @@ table {
     background-color: #cfe2ff;
     border-color: #b6d4fe;
     
-    p {
+    .icon, .text p {
       color: #084298!important;
     }
   }
@@ -679,7 +702,7 @@ table {
     background-color: #d1e7dd;
     border-color: #badbcc;
     
-    p {
+    .icon, .text p {
       color: #0f5132!important;
     }
   }
@@ -688,7 +711,7 @@ table {
     background-color: #f8d7da;
     border-color: #f5c2c7;
 
-    p {
+    .icon, .text p {
       color: #842029!important;
     }
   }
@@ -697,7 +720,7 @@ table {
     background-color: #cff4fc;
     border-color: #b6effb;
 
-    p {
+    .icon, .text p {
       color: #055160!important;
     }
   }
@@ -706,7 +729,7 @@ table {
     background-color: #fff3cd;
     border-color: #ffecb5;
     
-    p {
+    .icon, .text p {
       color: #664d03!important;
     }
   }
@@ -1297,6 +1320,13 @@ ul.kratos-post-meta {
   }
 }
 
+.kratos-breadcrumb {
+  margin: 10px 25px;
+  > a, span {
+    padding: 0 5px;
+  }
+}
+
 .kratos-status {
   margin: 15px 15px 15px 38px;
   border-left: 1px dotted #7b7b7b7b;
@@ -1438,6 +1468,10 @@ ul.kratos-post-meta {
       color: #fff !important
     }
   }
+}
+
+.col-md-8 {
+  width: 100%;
 }
 
 .kratos-post-content {
@@ -2010,7 +2044,9 @@ ul.kratos-post-meta {
     &.widget-kratos {
   
       &-about {
-        padding: 0 !important;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
     
         .photo-background {
           -webkit-background-size: cover;
@@ -2042,6 +2078,26 @@ ul.kratos-post-meta {
           margin-bottom: 1em;
           font-size: 16px;
           margin: 20px;
+        }
+  
+        .site-meta {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+
+          > .meta-item {
+            display: flex;
+            flex-direction: column;
+            padding: .5rem 1rem;
+            border-radius: 5px;
+            &:hover {
+              background-color: #efefefaa;
+            }
+            > * {
+              display: flex;
+              justify-content: center;
+            }
+          }
         }
       }
 
@@ -2559,7 +2615,7 @@ body.scroll-down .kr-tool {
   }
 }
 
-@media(max-width:767px) {
+@media(max-width:768px) {
   .visible-xs {
     display: block !important;
   }
@@ -2934,10 +2990,6 @@ span.mjx-chtml.MJXc-display {
     padding: 0;
     border-radius: 4px;
   }
-}
-
-.v[data-class=v] code:not([class*=language-]) {
-  background-color: #6c6c6cc6!important;
 }
 
 /******************* Images ********************/

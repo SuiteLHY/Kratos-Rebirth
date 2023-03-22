@@ -9,8 +9,49 @@ site_logo: https://avatars.githubusercontent.com/SuiteLHY
 snow: false
 enable_dark: true
 highlight_theme: night-eighties # 代码高亮主题（light | night | night-eighties | night-blue | night-bright）
-cdn: false
 check_update: false
+# canonical: true
+
+vendors:
+  packages:
+    disqusjs: 
+      version: 1.2.6
+    gitalk: 
+      version: 1.7.2
+    gitment: 
+      version: 0.0.3
+    twikoo: 
+      version: 1.5.11
+    valine: 
+      version: 1.4.18
+    "@waline/client": 
+      version: 2.14.1
+    bootstrap: 
+      version: 3.3.4
+    nprogress: 
+      version: 0.2.0
+    aplayer: 
+      version: 1.10.1
+    "@fancyapps/fancybox": 
+      version: 3.5.7
+    layui-src: 
+      version: 2.5.5
+    font-awesome: 
+      version: 4.7.0
+    jquery: 
+      version: 3.6.0
+    qrcode_js: 
+      version: 1.0.0
+    mermaid: 
+      version: 9.1.1
+    meting:
+      version: 2.0.1
+
+# 自定义样式
+customStyles:
+  images: # 图片相关设置
+    # banner: /images/banner.webp # 站点横幅
+    # background: /images/bg.webp # 站点背景
 
 # Index 首页配置
 index:
@@ -39,7 +80,7 @@ label:
 
 # Footer 页脚配置
 group_link: 
-contact:
+contact: # 出于兼容性考虑，继续保留
   weibo: 
   mail:
   telegram: SuiteLHY
@@ -53,6 +94,7 @@ contact:
     username:
   github: SuiteLHY
   rss:
+footerLinks: [] # 可以自定义
 timenotice: 本站已运行
 icp: 
 psr:
@@ -62,7 +104,12 @@ posts:
   show_cc: true
   donate: false
   share: true
-  comments: valine
+  comments: 
+    provider: ''
+    enableBGImage: false
+  wordCount: 
+    enable: true
+    threshold: 1500
 
 # Disqus [Disqus](https://disqus.com) 评论相关
 disqus:
@@ -89,11 +136,39 @@ twikoo:
   env_id: 
 
 # Waline [Waline](https://waline.js.org) 评论相关
-## 不仅限于以下内容，您可以参照 Waline的 [前端配置文档](https://waline.js.org/client/basic.html) 设置您需要的配置项
+## 不仅限于以下内容，您可以参照 Waline的 [前端配置文档](https://waline.js.org/reference/client.html) 设置您需要的配置项
 ## el 和 path 会在页面自动生成，不必加入
 waline:
   serverURL: #后端服务器地址，必填
-  visitor: true
+  comment: true
+  pageview: true
+
+# Gitalk [Gitalk](https://gitalk.github.io/) 评论相关
+## 不仅限于以下内容，您可以参照 [Gitalk 文档](https://github.com/gitalk/gitalk/blob/master/readme-cn.md#%E8%AE%BE%E7%BD%AE) 设置您需要的配置项
+## id 会在页面自动生成，不必加入
+gitalk:
+  clientID: 'GitHub Application Client ID'
+  clientSecret: 'GitHub Application Client Secret'
+  repo: 'Kratos-Rebirth-Demo'
+  owner: 'Candinya'
+  admin: 
+    - 'Candinya'
+  distractionFreeMode: false
+
+# Gitment [Gitment](https://github.com/imsun/gitment/) 评论相关
+## 不仅限于以下内容，您可以参照 [Gitment 文档](https://github.com/imsun/gitment#methods) 设置您需要的配置项
+## id 会在页面自动生成，不必加入
+gitment:
+  owner: 'Candinya'
+  repo: 'Kratos-Rebirth-Demo'
+  oauth:
+    client_id: 'Your client ID'
+    client_secret: 'Your client secret'
+
+# LiveRe [LiveRe](https://livere.com/) 评论相关
+livere:
+  id: city
+  uid:
 
 # APlayer 左下角音乐播放器
 aplayer:
@@ -117,6 +192,9 @@ widgets:
 - posts
 #avatarUri: /images/avatar.webp
 avatarUri: https://avatars.githubusercontent.com/SuiteLHY
+mobile_toc: 
+  hide: false
+  hide_id: false
 
 # Fancybox 文章内图片单击放大
 fancybox: true
@@ -129,15 +207,15 @@ search:
   content: true # Include post | page content
 
 # JavaScript 相关配置
-## 由于 Javascript 被压缩后难以有效编辑与生成，因而为了简化操作，将相关的配置项在生成文件时以独立的 json 文件写出，调用时使用 fetch API 获取。
+## 由于Javascript被压缩后难以有效编辑与生成，因而为了简化操作，将相关的配置项在生成文件时以独立的json文件写出，调用时使用fetch API获取。
 jsconfig:
   main:
-    pic:
-      CDN: false # 表示不使用CDN加载图片
+    cover:
       # 注意：如果"random_amount"配置项的值大于随机图片的数量，则会在站点运行时出现找不到图片的显示问题
-      random_amount: 110 # 表示从1~110
-      # 如果包含<code>//</code>表示使用指定域名的绝对路径（例如第三方图床服务等），此时会忽略CDN配置项
-      filename: "images/thumb/thumb_{no}.webp" # 相对于主题根目录，表示文件名的格式，{no}用以指代随机的编号。
+      randomAmount: 110 # 表示从1~110
+      baseUrl: null # 使用默认值（不单独配置），将跟随 vendors 中的相关设定选择是否使用 cdn
+      #filename: "images/thumb/thumb_{no}.webp" # 相对于主题根目录，表示文件名的格式，{no}用以指代随机的编号。
+      filenameTemplate: "thumb_{no}.webp" 
     createTime: "2021/04/06 20:29:04"
     donateBtn: "支持我~"
     scanNotice: "扫一扫，好不好？"
@@ -148,6 +226,7 @@ jsconfig:
     returnTitle: "(*´∇｀*)欸，又好啦~"
     copyrightNotice: "该内容采用 CC BY-NC-SA 4.0 许可协议，著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"
     expire_day: 30
+    topNavScrollToggle: true
 
 # Site verify 站点验证相关配置内容
 site_verify:
@@ -172,3 +251,8 @@ friends:
     bio: "⑨"
     avatar: "https://avatars.githubusercontent.com/Cirnop"
     link: "https://github.com/Cirnop"
+  verify: true # 验证每个友链的可访问性，炸了会有提示
+
+# Misc 杂项
+misc:
+  showWordCountEstimateWavy: true # 在文章字数处显示表示大约字数的波浪号

@@ -20,8 +20,6 @@ toc: true
 
 由于本模板使用了和默认模板landscape一样的ejs引擎，因此当您完成Hexo站点的安装后，您应该能够直接运行本主题。
 
-在运行之前，请您将`_config.yml.example`文件复制一份，并重命名为`_config.yml`；
-
 ## 主题配置
 
 **配置文件地址：`./kratos-rebirth/_config.yml`**
@@ -64,6 +62,22 @@ toc: true
 
 ### - Top Menu 顶部导航栏相关
 
+- *(>2.0.3)* 可以尝试更优雅的新配置方案，每一项的配置含义解释为：
+
+``` yaml
+- label: 这个菜单的标签文字
+  icon: 这个菜单前的图标（在 FontAwesome 4.7.0 图标库中选择，可以不设置）
+  url: 这个菜单指向的链接（站内或是站外均可）
+  submenu: 这个菜单是否为一个二级菜单，有了这个选项就会忽略上面的 url
+    - label: 二级菜单项的标签文字 
+      icon: 二级菜单前的图标（在 FontAwesome 4.7.0 图标库中选择，可以不设置）
+      url: 二级菜单项指向的链接
+```
+
+具体可以参见 `.demo/_config.kratos-rebirth.yml` 中示例的配置哦。
+
+{% collapse "旧的导航栏配置归档 - 已不推荐再这样使用" %}
+
 - 分为**menu**和**label**两个模块，控制页首的顶部导航栏内容。
 menu模块提供导航到的页面位置，label模块提供导航选项卡的显示内容。
 请注意menu项与label项需要一一对应，否则可能会出现无法正常显示的情况。
@@ -93,12 +107,25 @@ label:
 **额外提示：**二级菜单功能可能会和旧版本的部分函数发生冲突，如果出现意外报错的话可以考虑**检查一下是否存在更新的Hexo版本**，或者[去Github提一个Issue](https://github.com/Candinya/Kratos-Rebirth/issues)。
 目前开发使用的环境(`package.json`文件)可以参见[🎁 使用环境小贴士](https://github.com/Candinya/Kratos-Rebirth#-%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E5%B0%8F%E8%B4%B4%E5%A3%AB)
 
+{% endcollapse %}
+
 ### - Footer 页脚显示相关
 
 - **group_link** : 控制是否在页面右下角显示群聊的加入按钮。如果显示的话，这里可以指定加群的链接。无需显示的话请留空（而*不是*删除这个设置项），相关的代码会自行处理结构生成关系。
 
-- **contact** : 联系方式相关，控制是否在页脚(./kratos-rebirth/layout/\_partial/footer.ejs)显示各种联系方式的按钮
+- ~~**contact**~~ （即将废弃）: 联系方式相关，控制是否在页脚(./kratos-rebirth/layout/\_partial/footer.ejs)显示各种联系方式的按钮
 如果要启用的话，请输入相关联系方式的代码，直接输入用户名即可（fediverse的实例需要输入实例地址，邮箱请使用mail@example.com这样的格式）；无需显示的内容请留空。
+
+- **footerLinks** : 控制在页脚显示各种联系方式的按钮，为数组，其中每个元素应为以下的样式：
+
+  ``` yaml
+  - icon: # 和 html 二选一，该选项表示使用来自 FontAwesome 4.7.0 图标库，内容为图标库中的唯一标识 （会被渲染为 <i class="fa fa-icon %>"></i>
+    html: # 和 icon 二选一，该选项表示插入自定义的 HTML 作为标识，例如您可在此放置一串 svg
+    link: # 按钮导向的目标链接
+    currentPage: # 可选，默认为否，启用该选项表示在当前页内打开目标链接
+  ```
+
+  具体的样例可以参照项目的 `.demo/_config.kratos_rebirth.yml` 配置样例。
 
 - **timenotice** : 本站运行时间前的提示文本。
 
@@ -114,7 +141,13 @@ label:
 
 - **share** : (*true/false*)控制文章页面是否显示分享链接的按钮
 
-- **comments** : (*disqus/disqusjs/valine/twikoo/waline/gitalk/gitment/false*)会从`layout/_comments`文件夹中加载指定的评论系统，您也可以自定义其他的解决方案。如果不想开启评论的话，那就还是设置为false吧\~
+- **comments** : 
+  - **provider**: (*disqus/disqusjs/valine/twikoo/waline/gitalk/gitment/false*)会从`layout/_comments`文件夹中加载指定的评论系统，您也可以自定义其他的解决方案。如果不想开启评论的话，那就还是设置为false吧\~
+  - **enableBGImage**: (*true/false*)控制是否在评论系统中显示背景图片
+
+- **wordCount** : 
+  - **enable**: (*true/false*)控制文章页面是否启用字数统计显示，默认为 `true`
+  - **threshold**: 控制文章页面字数统计功能进入估算模式的字符数分割点，默认为 `1500`
 
 ### - Disqus 评论相关
 
@@ -205,10 +238,10 @@ label:
 ### - JavaScript 相关的配置
 
 - **main** : 主JavaScript配置
-  - **pic** : 无图片文章使用的随机图片相关设置
-    - **CDN** : (*jsdelivr/unpkg/false*)图片是否使用CDN来载入（如果有本地替换过图片，请设置为 false 以避免图片失效）
-    - **random_amount** : 表示图片的编号为 1 ~ 您设定的值，默认是 20 
-    - **filename** : 图片的文件名格式
+  - **cover** : 无图片文章使用的随机封面图片相关设置
+    - **randomAmount** : 表示图片的编号为 1 ~ 您设定的值，默认是 20 
+    - **baseUrl** : 图片的基础链接，例如使用本地图片则为 `/images/thumb/` （请注意您的站点路径）
+    - **coverFileNameTemplate** : 图片的文件名格式模板，默认为 `thumb_{no}.webp` ，使用时代码会将 `{no}` 替换成随机的数字编号
   - **createTime** 站点建立的时间，请改成您站点建立的时间。该项与页脚的运行时间有直接关联，建议按照样例格式进行书写，以免出现莫名其妙的报错。
   - **donateBtn** 捐助按钮上显示的文字，建议不要太长以免溢出，如果不显示捐助按钮的话就不用去管它啦\~
   - **kr.scanNotice** 二维码小窗口上的小标题，如果不显示捐助按钮的话也不用去管它啦\~
@@ -217,7 +250,7 @@ label:
   - **siteLeaveEvent** (*true/false*)是否启用站点失焦事件（只是为了卖萌，有可能会影响到历史记录，请谨慎开启）
   - **leaveTitle** 离开时候站点标题的追加内容
   - **returnTitle** 返回时候站点标题的追加内容
-  - **expire_day** 文章过期提示：距离最后更新时间多少天时，打开文件会给出提示信息
+  - **expire_day** 文章过期提示：距离最后更新时间多少天时，打开文章页面会给出提示信息。对于无标题的 Status 类默认不启用，但您可以在 Front Matter 区域内加上 `expire: true` 来手动开启。
   - **topNavScrollToggle** (*true/false*)顶部导航栏在页面向下滚动时隐藏
 
 ### - Site verify related 站点所有权验证相关
@@ -243,6 +276,10 @@ label:
   - **page** : 页面相关的参数，您可以配置任意多您需要的页面参数，提供的样例可供您参考
   - **list** : 友链列表，您可以参照提供的样例进行对应的复制修改，每一项可以提供显示的名字(name)、简介(bio)、头像链接(avatar)和目标站点链接(link)，无用项建议留空（而不是直接删除）
   - **verify** : 是否在每次启动时验证友联的可访问性
+
+### - Misc 杂项
+
+- **showWordCountEstimateWavy** : 在文章字数处显示表示大约字数的波浪号
 
 -----
 
@@ -270,7 +307,7 @@ label:
 
 ``` md
 title: 文章标题
-date: 1970-01-01 00:00:00
+date: 2018-03-24 15:31:36
 categories: Demo
 tags:
 - Tag0
@@ -280,6 +317,7 @@ sticky: 100
 pic:
 comments: true
 toc: true
+expire: true
 only:
 - home
 - category

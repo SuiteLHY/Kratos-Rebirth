@@ -1,11 +1,11 @@
 # NodeJS
 node_modules/
 
-## 配置文件
-#_config.yml
+# 配置文件
+_config.yml
 
 # 站点图像
-#source/images/
+source/images/
 
 # 锁文件
 package-lock.json

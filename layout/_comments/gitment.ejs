@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="<%- url_npm_cdn('gitment/style/default.css') %>">
-<div id="gitment-container" class="post-comments lazy-load"></div>
+<%- css_npm_cdn('gitment', 'style/default.css') %>
+<div id="gitment-container" class="post-comments lazy-load<% if (theme.posts.comments?.enableBGImage) { %> bg-image<% } %>"></div>
 <script>
     var load_comm = () => {
         const init = () => {
@@ -11,7 +11,7 @@
             gitment.render('gitment-container');
         }
         if (typeof Gitment === 'undefined') {
-            const src = '<%- url_npm_cdn("gitment/dist/gitment.browser.js") %>';
+            const src = '<%- url_npm_cdn("gitment", "dist/gitment.browser.js") %>';
             $.getScript(src, init);
         } else {
             init();

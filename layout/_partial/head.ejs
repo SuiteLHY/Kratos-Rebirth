@@ -4,18 +4,18 @@
   <% if (theme.site_logo) { %><link rel="icon" href="<%- theme.site_logo %>"><% } %>
   <%
   var title = page.title || __(page.title_i18n);
-  if (is_archive()){
+  if (is_archive()) {
     title = __('title.archive');
-    if (is_month()){
+    if (is_month()) {
       title += ': ' + page.year + '-' + String(page.month).padStart(2, '0');
-    } else if (is_year()){
+    } else if (is_year()) {
       title += ': ' + page.year;
     }
-  } else if (is_category()){
+  } else if (is_category()) {
     title = __('title.category') + ': ' + page.category;
-  } else if (is_tag()){
+  } else if (is_tag()) {
     title = __('title.tag') + ': ' + page.tag;
-  } else if (is_post() && !title){
+  } else if (is_post() && !title) {
     title = __('title.status');
   }
   %>
@@ -93,5 +93,7 @@
     <% } %>
   </style>
   <% } %>
+  <!-- HLS視頻處理 -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="/js/hls-player.js"></script>
 </head>
-

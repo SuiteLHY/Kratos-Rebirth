@@ -19,3 +19,6 @@ _backup/
 # IDE相关配置目录
 .vscode/
 .idea/
+
+# 包含私有密鑰的文件
+source/vendors/twikoo*

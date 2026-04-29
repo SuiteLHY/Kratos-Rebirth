@@ -1,0 +1,45 @@
+title:
+  archive: Archive
+  category: Category
+  tag: Tag
+  search: Search
+  not_found: This page is missing...
+  status: View Updates
+categories_list: Categories list
+read_more: Read More
+read_full: Read Full
+search: Search
+search_notice: What are you looking for? o(*￣▽￣*)ブ
+search_submit: Look for~
+search_notice_page: This is the search engine for %s ~
+search_notice_keys: When searching for multiple keywords, please separate them with spaces, such as "%s";
+search_notice_tags: You can also try your luck with these tags ~
+tag: Tag
+tagcloud: Tag Cloud
+prev: Prev
+next: Next
+comment: Comment
+archive: Archive
+archive_count: There are currently %d articles. (゜-゜)つロ Cheers~
+page: Page %d
+recent_posts: Recent posts
+newer: Previous post
+older: Next post
+share: Share
+rss_feed: RSS feed
+category: Category
+category_in: Category in
+copyright: Copyright
+author: Author
+read_count: '%s views'
+comments_count: '%s comment'
+last_modify: Last Edited&colon;
+last_modify_alert: This article was last edited before %s, and its content may require updating.
+reward: Reward
+no_title: No title
+use_cc4_license: 本作品采用 <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可
+toc: Table of Contents
+words: Words
+post: Post
+tags_count: There are currently %d tags. (゜-゜)つロ Cheers~
+categories_count: There are currently %d categories. (゜-゜)つロ Cheers~

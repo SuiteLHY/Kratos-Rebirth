@@ -1,0 +1,34 @@
+/* lazy-hls-player組件樣式 */
+.lazy-hls-player-container {
+  position: relative;
+  width: 100%;
+  height: inherit;
+  min-width: inherit;
+  min-height: inherit;
+  margin: 0 !important;
+  aspect-ratio: 16/9;
+  background-color: #000;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.lazy-hls-player-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.lazy-hls-player-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  text-shadow: 0 0 10px black;
+  pointer-events: none;
+}

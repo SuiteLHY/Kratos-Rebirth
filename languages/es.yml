@@ -1,0 +1,45 @@
+title:
+  archive: Archivo
+  category: Categoría
+  tag: Etiqueta
+  search: Buscar
+  not_found: Esta página ha desaparecido...
+  status: Ver actualizaciones
+categories_list: Directorio de clasificación
+read_more: Leer más
+read_full: Leer el texto completo
+search: Buscar
+search_notice: ¿Qué podría estar buscando?o(*￣▽￣*)ブ
+search_submit: Echa un vistazo~
+search_notice_page: Este es el motor de búsqueda para %s~
+search_notice_keys: Cuando busque varias palabras clave, sepárelas con espacios, por ejemplo&colon; «%s»;
+search_notice_tags: También puedes probar suerte con estas etiquetas~
+tag: Etiqueta
+tagcloud: Agregación de etiquetas
+prev: Anterior
+next: Siguiente
+comment: Deja un comentario
+archive: Archivo de artículos
+archive_count: Actualmente hay %d artículos (゜-゜)つロ ¡Saludos!~
+page: Página %d
+recent_posts: Últimos artículos
+newer: Artículo anterior
+older: Siguiente
+share: Compartir
+rss_feed: Fuente RSS
+category: Categoría
+category_in: Categoría en
+copyright: Derechos de autor
+author: Autor
+read_count: '%s visitas'
+comments_count: '%s comentarios'
+last_modify: Última edición&colon;
+last_modify_alert: Este artículo fue editado por última vez antes de %s, y es posible que su contenido deba actualizarse.
+reward: Recompensa
+no_title: Sin título
+use_cc4_license: Esta obra está protegida por la licencia <a rel="license nofollow" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International licence</a>.
+toc: Índice
+words: caracteres
+post: Publicación
+tags_count: Actualmente hay %d etiquetas (゜-゜)つロ ¡Salud!~
+categories_count: Actualmente hay %d categorías (゜-゜)つロ ¡Salud!~

@@ -32,7 +32,7 @@
     "Safari >= 8"
   ],
   "devDependencies": {
-    "@babel/core": "^7.18.9",
+    "@babel/core": "^8.0.1",
     "@babel/preset-env": "^7.18.9",
     "autoprefixer": "^10.4.7",
     "browser-sync": "^2.27.10",
